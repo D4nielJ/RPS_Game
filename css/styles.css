@@ -7,11 +7,19 @@
 html {
     font-size: 10px;
     font-family: Arial, sans-serif;
+    text-align: center;
 }
 
-a, a:hover, a:visited {
+a, a:hover, a:visited, button:checked {
     color: black;
     text-decoration: none;
+}
+
+button, button:hover, button:visited {
+    border: 0;
+    font-family: inherit;
+    text-decoration: none;
+    padding: 0;
 }
 
 body {
@@ -24,6 +32,7 @@ body {
     display: flex;
     flex-wrap: flex;
     flex-direction: column;
+    justify-content: center;
 }
 
 .title {
@@ -40,19 +49,20 @@ body {
     margin: 10px auto;
     display: flex;
     flex-wrap: wrap;
+    justify-content: center;
 }
 
 .game li {
     text-decoration: none;
-    margin: 0 10px;
-    padding: 5px 10px;
-    min-width: 100px;
+    margin: 10px 10px;
+    min-width: 150px;
     text-align: center;
-    line-height: 35px;
+    line-height: 0px;
     list-style-type: none;
     background-color: rgb(85, 151, 153);
     border-radius: 3px;
     box-shadow: 0 2px 2px rgba(0, 0, 0, 0.2);
+    font-weight: 525;
 }
 
 .game li:hover {
@@ -66,11 +76,15 @@ body {
 
 }
 
+.game i {
+    margin-top: 10px;
+    font-size: 3rem;
+}
+
 .game .result {
     line-height: 40px;
     border: 1px solid rgb(45, 45, 45);
     border-radius: 3px;
-    margin: 10 auto;
     min-width: 200px;
     min-height: 20px;
     padding: 5px 20px;
@@ -87,8 +101,33 @@ body {
     margin: 0 5px;
 }
 
+.game .reset {
+    align-self: center;
+    text-decoration: none;
+    margin: 0 10px;
+    padding: 5px 10px;
+    min-width: 100px;
+    max-width: 200px;
+    text-align: center;
+    line-height: 35px;
+    list-style-type: none;
+    background-color: rgb(255, 121, 88);
+    color: rgb(20, 20, 20);
+    border-radius: 3px;
+    box-shadow: 0 2px 2px rgba(0, 0, 0, 0.2);
+    font-weight: 525;
+}
 
+.game .reset:hover {
+    cursor: pointer;
+    background-color: rgb(255, 93, 52);
+    box-shadow: 0 2px 2px rgba(0, 0, 0, 0.6);
+}
 
+.game .reset:active {
+    cursor: pointer;
+    background-color: rgb(212, 77, 44);
+}
 
 
 

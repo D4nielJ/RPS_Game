@@ -11,9 +11,9 @@
       <h2 class="title">Rock Paper Scissors Game!</h2>
       <p>Make a choice carefully and beat the computer</p>
       <ul>
-          <li id="rock" data-button="rock">Rock</li>
-          <li id="paper" data-button="paper">Paper</li>
-          <li id="scissors" data-button="scissors">Scissors</li> 
+          <li id="rock" data-button="rock"><i class="fas fa-hand-rock"></i><p>Rock</p></li>
+          <li id="paper" data-button="paper"><i class="fas fa-hand-paper"></i><p>Paper</p></li>
+          <li id="scissors" data-button="scissors"><i class="fas fa-hand-scissors"></i><p>Scissors</p></li>
       </ul>
       <p class="result">May the best win!</p>
       <div class="count">
@@ -22,6 +22,7 @@
         <div>Computer:</div>
         <div class="computer-score">0</div>
       </div>
+      <div class="button reset">Reset</div> 
     </div>
   <script>
     let roundNum = 1;
@@ -66,6 +67,7 @@
         playerScoreCounter++;
         playerScore.textContent = playerScoreCounter;
         result.textContent =`You won round #${roundNum}! ${playerSelection} beats ${computerSelection}`;
+        result.style.setProperty('background-color', 'rgb(0 173 101)');
         roundNum++;
       } else if (
         (playerSelection === `rock` && computerSelection === `paper`) || 
@@ -75,9 +77,11 @@
         computerScoreCounter++;
         computerScore.textContent = computerScoreCounter;
         result.textContent =`You lose round #${roundNum}! ${playerSelection} loses to ${computerSelection}`;
+        result.style.setProperty('background-color', 'rgb(115 0 0)');
         roundNum++;
       } else {
         result.textContent =`It's a draw`;
+        result.style.setProperty('background-color', 'rgb(60 60 60)');
         roundNum++;
       }
     }
@@ -87,8 +91,12 @@
     paperButton.addEventListener('click', playGame);
     scissorsButton.addEventListener('click', playGame);
 
-    
-    console.log("Hello, World!")
+    // Reset button = Reload page
+    const resetButton = document.querySelector('.reset')
+    resetButton.addEventListener('click', _ => {
+      location.reload();
+    });
   </script>
+  <script src="https://kit.fontawesome.com/d5e3631d2a.js" crossorigin="anonymous"></script>
 </body>
 </html>
