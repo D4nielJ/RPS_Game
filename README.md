@@ -1,4 +1,4 @@
-# google_homepage
+# Rock Paper Scissors
 
 ## Classic Rock - Paper - Scissors game vs Computer
 
