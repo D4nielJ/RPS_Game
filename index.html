@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Rock Paper Scissors</title>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fitno">
+  <link rel="stylesheet" type="text/css" href="css/styles.css" media="screen"/>
+</head>
+<body>
+    <div class="game">
+      <h2 class="title">Rock Paper Scissors Game!</h2>
+      <p>Make a choice carefully and beat the computer</p>
+      <ul>
+          <li id="rock" data-button="rock">Rock</li>
+          <li id="paper" data-button="paper">Paper</li>
+          <li id="scissors" data-button="scissors">Scissors</li> 
+      </ul>
+      <p class="result">May the best win!</p>
+      <div class="count">
+        <div>Player:</div>
+        <div class="player-score">0</div>
+        <div>Computer:</div>
+        <div class="computer-score">0</div>
+      </div>
+    </div>
+  <script>
+    let roundNum = 1;
+    let playerScoreCounter = 0;
+    let computerScoreCounter = 0;
+
+    // Naming player and computer scores to update
+    const playerScore = document.querySelector('.player-score');
+    const computerScore = document.querySelector('.computer-score');
+
+    // Naming and placing the result of each round
+    const result = document.querySelector('.result');
+
+    // Naming player's buttons to add event listeners
+    const rockButton = document.querySelector('#rock');
+    const paperButton = document.querySelector('#paper');
+    const scissorsButton = document.querySelector('#scissors');
+
+    // Function to calculate computers outcome
+
+    function computerPlay() {
+      let computerPlayNumber = Math.floor(Math.random()*3)
+      if (computerPlayNumber === 0) {
+        return `rock`;
+      } else if (computerPlayNumber === 1) {
+        return `paper`;
+      } else {
+        return `scissors`;
+      }
+    }
+
+    // Function to play a round
+
+    function playGame() {
+      playerSelection = this.dataset.button;
+      computerSelection = computerPlay();
+      if (
+        (playerSelection === `rock` && computerSelection === `scissors`) || 
+        (playerSelection === `scissors` && computerSelection === `paper`) || 
+        (playerSelection === `paper` && computerSelection === `rock`)
+      ) {
+        playerScoreCounter++;
+        playerScore.textContent = playerScoreCounter;
+        result.textContent =`You won round #${roundNum}! ${playerSelection} beats ${computerSelection}`;
+        roundNum++;
+      } else if (
+        (playerSelection === `rock` && computerSelection === `paper`) || 
+        (playerSelection === `scissors` && computerSelection === `rock`) || 
+        (playerSelection === `paper` && computerSelection === `scissors`)
+      ) {
+        computerScoreCounter++;
+        computerScore.textContent = computerScoreCounter;
+        result.textContent =`You lose round #${roundNum}! ${playerSelection} loses to ${computerSelection}`;
+        roundNum++;
+      } else {
+        result.textContent =`It's a draw`;
+        roundNum++;
+      }
+    }
+
+    // Players's Button Event Listener to Play the Game
+    rockButton.addEventListener('click', playGame);
+    paperButton.addEventListener('click', playGame);
+    scissorsButton.addEventListener('click', playGame);
+
+    
+    console.log("Hello, World!")
+  </script>
+</body>
+</html>
