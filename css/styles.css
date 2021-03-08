@@ -129,6 +129,12 @@ body {
     background-color: rgb(212, 77, 44);
 }
 
+@media only screen and (max-width: 768px) {
+  .title {
+    margin: 110px auto 20px auto;
+  }
+}
+
 
 
 
